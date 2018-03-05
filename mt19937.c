@@ -3,6 +3,7 @@
 
 /* 64 bits MT19937
  * http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/ARTICLES/mt.pdf
+ * http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/VERSIONS/C-LANG/mt19937-64.c
  */
 
 /* constants */
@@ -48,10 +49,10 @@ unsigned long int gen_rand(void)
 	x[k] = x[(k+M)%N] ^ (z >> 1) ^ (!(z & 1UL) ? 0UL : A);
 	/* Tempering */
 	y    = x[k];
-	y   ^= ((y >> U) & D);
-	y   ^= ((y << S) & B);
-	y   ^= ((y << T) & C);
-	y   ^=  (y >> L);
+	y   ^= (y >> U) & D;
+	y   ^= (y << S) & B;
+	y   ^= (y << T) & C;
+	y   ^=  y >> L;
 
 	k = (k + 1)%N;
 	return y;
