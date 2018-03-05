@@ -45,7 +45,7 @@ unsigned long int gen_rand(void)
 	/* z = (x^u_k | x^l_(k+1))*/
 	z    = (x[k] & UPPER_MASK) | (x[(k+1)%N] & LOWER_MASK);
 	/* x_(k+n) = x_(k+m) |+| z*A */
-	x[k] = x[(k+M)%N] ^ (z >> 1) ^ ((z == 1UL) ? 0UL : A);
+	x[k] = x[(k+M)%N] ^ (z >> 1) ^ (!(z & 1UL) ? 0UL : A);
 	/* Tempering */
 	y    = x[k];
 	y   ^= ((y >> U) & D);
