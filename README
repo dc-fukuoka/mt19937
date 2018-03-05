@@ -1,4 +1,4 @@
-Mersenne Twister(MT19937)
+64 bits Mersenne Twister(MT19937).
 
 $ make
 $ ./a.out
@@ -9,5 +9,4 @@ seed: 7777
 16597101014356567226
 12571727424067055852
 ...
-
 
