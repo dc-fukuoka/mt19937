@@ -1,4 +1,4 @@
-64 bits Mersenne Twister(MT19937).
+pseudo random number generator by using 64 bits Mersenne Twister(MT19937).
 
 $ make
 $ ./a.out
